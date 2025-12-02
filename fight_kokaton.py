@@ -164,7 +164,6 @@ def main():
                 beam = Beam(bird)            
         screen.blit(bg_img, [0, 0])
         
-<<<<<<< HEAD
         if bird.rct.colliderect(bomb.rct):
             # ゲームオーバー時に，こうかとん画像を切り替え，1秒間表示させる
             bird.change_img(8, screen)
@@ -174,7 +173,6 @@ def main():
             pg.display.update()
             time.sleep(1)
             return
-=======
         for b, bomb in enumerate(bombs):
             if bird.rct.colliderect(bomb.rct):
                 # ゲームオーバー時に，こうかとん画像を切り替え，1秒間表示させる
@@ -182,7 +180,6 @@ def main():
                 pg.display.update()
                 time.sleep(1)
                 return
->>>>>>> bomb
         
         for b, bomb in enumerate(bombs):
             if bomb is not None:
