@@ -159,6 +159,7 @@ class Score:
         img = self.fonto.render(f"Score: {self.score}", 0, self.color)
         #スコア表示位置
         self.pos = [100, HEIGHT - 50]
+        # 画面にスコア表示
         scr.blit(img, self.pos)
 
 def main():
@@ -172,7 +173,7 @@ def main():
     #    bombs.append(Bomb((255, 0, 0), 10))
     #    bombs.append(bomb)
     bombs = [Bomb((255, 0, 0), 10) for _ in range(NUM_OF_BOMBS)]
-    beam = None  # ゲーム初期化時にはビームは存在しない
+    beam =  None # ゲーム初期化時にはビームは存在しない
     clock = pg.time.Clock()
     tmr = 0
     score = Score()
@@ -208,15 +209,15 @@ def main():
                         bird.change_img(6, screen)
                         pg.display.update()
         bombs = [bomb for bomb in bombs if bomb is not None]
-    
         key_lst = pg.key.get_pressed()
         bird.update(key_lst, screen)
         if beam is not None:#ビームが存在してたら
             beam.update(screen)
+            
         for bomb in bombs:#爆弾が存在してたら
             bomb.update(screen)
 
-        score.score = NUM_OF_BOMBS - len(bombs)
+        score.score = NUM_OF_BOMBS - len(bombs)# 現在のスコアを更新
         score.update(screen)
         pg.display.update()
         tmr += 1
