@@ -164,11 +164,20 @@ def main():
             pg.display.update()
             time.sleep(1)
             return
-
+        
+        if bomb is not None:
+            if beam is not None:
+                if beam.rct.colliderect(bomb.rct):
+                    # ビームが爆弾に当たったら爆弾とビームを消す
+                    bomb = None
+                    beam = None
+    
         key_lst = pg.key.get_pressed()
         bird.update(key_lst, screen)
-        # beam.update(screen)   
-        bomb.update(screen)
+        if beam is not None:#ビームが存在してたら
+            beam.update(screen)
+        if bomb is not None:#爆弾が存在してたら
+            bomb.update(screen)
         pg.display.update()
         tmr += 1
         clock.tick(50)
