@@ -14,7 +14,7 @@ os.chdir(os.path.dirname(os.path.abspath(__file__)))
 def check_bound(obj_rct: pg.Rect) -> tuple[bool, bool]:
     """
     オブジェクトが画面内or画面外を判定し，真理値タプルを返す関数
-    引数：こうかとんや爆弾，ビームなどのRect
+    
     戻り値：横方向，縦方向のはみ出し判定結果（画面内：True／画面外：False）
     """
     yoko, tate = True, True
@@ -173,7 +173,7 @@ def main():
     #    bombs.append(Bomb((255, 0, 0), 10))
     #    bombs.append(bomb)
     bombs = [Bomb((255, 0, 0), 10) for _ in range(NUM_OF_BOMBS)]
-    beam =  None # ゲーム初期化時にはビームは存在しない
+    beam = None # ゲーム初期化時にはビームは存在しない
     clock = pg.time.Clock()
     tmr = 0
     score = Score()
